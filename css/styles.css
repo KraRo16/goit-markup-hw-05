@@ -87,8 +87,6 @@ body {
 
 /*=========== HEADER ===========*/
 .page-header {
-    padding-top: 24px;
-    padding-bottom: 24px;
     border-bottom: 1px solid #ECECEC;
 }
 
@@ -141,11 +139,14 @@ body {
 }
 
 .menu-link {
+    padding: 32px 0;
+    display: block;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--secondary-accent-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-link:hover,
@@ -167,6 +168,7 @@ body {
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--third-accent-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contact-link:hover,
@@ -187,12 +189,28 @@ body {
     display: flex;
     margin-right: 10px;
     fill: var(--third-accent-color);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .e-mail {
     width: 161px;
 }
 
+.current {
+    position: relative;
+}
+
+.current::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 96.5%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
 
 
 /*=========== /HEADER ===========*/
@@ -238,6 +256,7 @@ body {
     border-radius: 4px;
     padding: 10px 32px;
     margin-top: 30px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-modal-btn:hover,
@@ -299,6 +318,29 @@ body {
 
 .what-we-do-gallery-item:not(:last-child) {
     margin-right: 30px;
+}
+
+.what-we-do-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.what-we-do-description {
+    position: absolute;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    top: 100%;
+    left: 0;
+    width: 370px;
+    height: 70px;
+    padding: 27px 0px 27px 0px;
+    color: #FFFFFF;
+    background: rgba(47, 48, 58, 0.8);
+    transform: translateY(-100%);
 }
 
 /*=========== /WHAT WE DO ===========*/
@@ -363,6 +405,8 @@ body {
     height: 44px;
     border-radius: 50%;
     background-color: #ffffff;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .social-list-link:hover,
@@ -372,6 +416,7 @@ body {
 
 .social-list-icon {
     fill: #AFB1B8;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list-link:hover .social-list-icon,
@@ -399,6 +444,11 @@ body {
 
 .clients-list-icon {
     fill: #AFB1B8;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clients-list-link {
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-list-link:hover,
@@ -479,6 +529,7 @@ body {
     background: #f5f4fa;
     border-radius: 4px;
     cursor: pointer;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-modal-btn-link:hover,
@@ -544,6 +595,7 @@ body {
 
 .portfolio-link {
     display: block;
+
 }
 
 .portfolio-link:hover,
@@ -553,6 +605,38 @@ body {
         1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.portfolio-link-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-link-overlay {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 62px 24px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    background-color: rgba(33, 150, 243, 0.9);
+    overflow: auto;
+
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.portfolio-link:hover .portfolio-link-overlay,
+.portfolio-link:focus .portfolio-link-overlay {
+    transform: translateY(0%);
+}
 
 /*=========== /PORTFOLIO ===========*/
 
@@ -617,6 +701,7 @@ body {
     height: 44px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-link:hover,
